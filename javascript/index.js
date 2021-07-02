@@ -6,17 +6,17 @@ fetch(uri)
     .then((data) => createCards(data));
 
 function createCards(array) {
-    const container = document.getElementsByClassName('container');
-    const length = array.length;
+    const container = document.getElementsById('cards-container');
+    console.log(container);
 
-    for (let i=0; i<length; i++) {
-        const card = createCards(array[i]);
+    data.forEach(element => {
+        const card = createCards(element);
         container.appendChild(card);
-    }
+    });
 }
 
 function createCards(obj) {
-    const card = document.createElement('section');
+    const card = document.createElement('div');
 
     const img = document.createElement('img');
     const name = document.createElement('h2');

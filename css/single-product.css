@@ -1,0 +1,47 @@
+body {
+    background-color: #F3EAF1;
+}
+
+/* header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+}
+
+a {
+    padding: 3px 20px;
+    left: 10px;
+    top: 15px;
+    font-size: 30px;
+    color: purple;
+}
+
+.logo-header {
+    margin-right: auto;
+    align-items: flex-start;
+}
+
+nav {
+    font-size: 20px;
+} */
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    flex-direction: row;
+    background-color: #F3EAF1;
+    border: none;
+}
+
+.card img {
+    width: 40%;
+}
+
+footer {
+    padding: 20px 0px;
+    margin-top: 50px;
+    font-size: 30px;
+}
