@@ -38,33 +38,42 @@
         </nav> -->
     </header>
 
-    <div class="card">
-        <img class="col-7 card-img-top" src="images/teddy_1.jpg" alt="teddy_1">
+    <section class="p-4">
+        <div class="card bg-white">
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="images/teddy_1.jpg" class="card-img" alt="teddy_1">
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Norbert</h5>
+                        <p class="card-text">Price: $29.00</p>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Color
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Tan</a></li>
+                                <li><a href="#">Chocolate</a></li>
+                                <li><a href="#">Black</a></li>
+                                <li><a href="#">White</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-        <div class="col-4 card-body">
-            <h2 class="card-title">Norbert</h2>
-            <p><strong>Price : </strong>2900</p>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Color
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Tan</a></li>
-                  <li><a href="#">Chocolate</a></li>
-                  <li><a href="#">Black</a></li>
-                  <li><a href="#">White</a></li>
-                </ul>
+                    <div class="form-group pl-3">
+                        <p class="medium pt-2 mt-4">Quantity</p>
+                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                    </div>
+        
+                    <p class="p-3">
+                        <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                    </p>
+
+                </div>
+
             </div>
-
-            <div class="form-group">
-                <label class="pt-4">Quantity</label>
-                <input type="quantiy" placeholder="1" class="form-control quantity">
-            </div>
-
-            <p class="pt-3">
-                <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-            </p>
         </div>
-    </div>
+    </section>
 
     <footer class="text-center">
         <img src="images/1576141243078_Orinoco logo.png" alt="logo">
