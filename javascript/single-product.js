@@ -1,24 +1,28 @@
 const uri = 'http://localhost:3000/api/teddies';
 
-const teddyContainer = document.querySelector('#single-product');
+document.getElementById("singleProduct");
 
-const name = ['norbert'];
+let url = window.location.href;
+let newURL = new URL(url);
+let id = newURL.searchParams.get('productId');
+if(id!='') {
+    displaySingleProduct(id);
+}
 
-var teddyData = [
-    {
-        itemID: "1", 
-        itemName: "Norbert", 
-        itemDesc: "Avaliable in Tan, Chocolate, Black, White", 
-        price: 29.00, 
-        image: "images/teddy_1.jpg"
-    },
- ];
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("singleProduct").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "Your Rest URL Here", true);
+    xhttp.setRequestHeader("Shopping-Cart", "application/json");
+    xhttp.send("myObj");
+  }
 
- let product = [
-     {name: "norbert" price: 29.00 itemDesc:"Avaliable in Tan, Chocolate, Black, White"}
- ]
+var myObj = { "name":"Norbert", "price":2900, "description":"Avaliable in Tan, Chocolate, Black, White"};
 
- let result = JSON.parse(response);
- result.teddyData[0].itemName => norbert
+var myJSON = JSON.stringify(myObj);
 
- 
+const obj = JSON.parse('myObj');
