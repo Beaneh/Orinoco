@@ -2,7 +2,7 @@ body {
     background-color: #F3EAF1;
 }
 
-header {
+/* header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -21,4 +21,4 @@ nav {
 
 .cards {
     height: 300px;
-}
+} */
