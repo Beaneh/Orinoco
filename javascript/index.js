@@ -56,7 +56,8 @@ function createCard(obj) {
 
     const price = document.createElement('p');
     price.classList.add('card-text');
-    price.innerText = obj.price;
+    const dollarPrice = obj.price / 100;
+    price.innerText = '$' + dollarPrice;
     cardBody.append(price)
 
     const colors = document.createElement('p')
