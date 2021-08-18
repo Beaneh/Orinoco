@@ -13,14 +13,21 @@ fetch(uri)
     .then((response) => response.json())
     .then((data) => createCard(data));
 
+
 function createCard(obj) {
-    const cardContainer =  document.createElement('div');
-    cardContainer.classList.add('col-md-7')
+
+    const cardContainer =  document.getElementById('singleProduct');
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('col-md-7')
+
 
     const img = document.createElement('img');
+    img.classList.add('card-img')
     img.setAttribute('src', obj.imageUrl);
     img.setAttribute('alt', obj.name);
-    cardContainer.append(img)
+    imgContainer.append(img)
+    
+    cardContainer.append(imgContainer)
 
     const card = document.createElement('div');
     card.classList.add('col-md-5');
@@ -34,7 +41,7 @@ function createCard(obj) {
     name.innerHTML = obj.name;
     cardBody.append(name)
 
-    const description = document.createElement('p')
+    const description = document.createElement('p');
     description.classList.add('obj-description');
     description.innerText = obj.description;
     cardBody.append(description)
@@ -45,12 +52,34 @@ function createCard(obj) {
     price.innerText = '$' + dollarPrice;
     cardBody.append(price)
 
-    const colors = document.createElement('p')
+    const colors = document.createElement('div');
     colors.classList.add('colors');
-    colors.innerText = obj.colors
+    colors.setAttribute('id', 'color-dropdown');
+    const dropdownButton = document.createElement('button');
+    dropdownButton.classList.add('btn', 'btn-primary', 'dropdown-toggle');
+    dropdownButton.setAttribute('type', 'button');
+    dropdownButton.setAttribute('data-toggle', 'dropdown');
+    dropdownButton.innerHTML = 'Color <span class="caret"></span>';
+    colors.append(dropdownButton)
+
+    const dropdownMenu = document.createElement('ul')
+    dropdownMenu.classList.add('dropdown-menu')
+
+    // obj.colors.forEach(color => {
+    //     const listItem = createlistItem(color);
+    //     dropdownMenu.append(listItem);
+    // });
+
     cardBody.append(colors)
 
-    return(cardContainer)
-}
+    cardContainer.append(card)
 
+    // const createlistItem = color => {
+    //     const item = document.createElement('li');
+    //     const link = document.createElement('a');
+    //     // <li><a href="#">Tan</a></li>
+    // }
+
+    // return(cardContainer)
+}
 console.log(createCard)

@@ -68,6 +68,7 @@ function createCard(obj) {
 }
 
 
+
 // $(document).ready(function(){
 //     $(".dropdown").on("hide.bs.dropdown", function(){
 //       $(".btn").html('Colors <span class="caret"></span>');
