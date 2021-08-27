@@ -52,34 +52,91 @@ function createCard(obj) {
     price.innerText = '$' + dollarPrice;
     cardBody.append(price)
 
-    const colors = document.createElement('div');
-    colors.classList.add('colors');
-    colors.setAttribute('id', 'color-dropdown');
+    /*
+    <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+    </div>
+
+    */
+
+    const dropdown = document.createElement('div');
+    dropdown.classList.add('dropdown');
     const dropdownButton = document.createElement('button');
     dropdownButton.classList.add('btn', 'btn-primary', 'dropdown-toggle');
     dropdownButton.setAttribute('type', 'button');
     dropdownButton.setAttribute('data-toggle', 'dropdown');
-    dropdownButton.innerHTML = 'Color <span class="caret"></span>';
-    colors.append(dropdownButton)
+    dropdownButton.setAttribute('id', 'dropdownMenuButton')
+    dropdownButton.innerText = 'Color';
+    dropdown.append(dropdownButton)
 
-    const dropdownMenu = document.createElement('ul')
-    dropdownMenu.classList.add('dropdown-menu')
+    const dropdownMenu = document.createElement('div');
+    dropdownMenu.classList.add('dropdown-menu');
+    dropdownMenu.setAttribute('aria-labelledby', 'dropdownMenuButton');
+    dropdown.append(dropdownMenu)
 
-    // obj.colors.forEach(color => {
-    //     const listItem = createlistItem(color);
-    //     dropdownMenu.append(listItem);
-    // });
 
-    cardBody.append(colors)
+    const createlistItem = color => {
+        const link = document.createElement('a');
+        link.classList.add('dropdown-item');
+        link.setAttribute('href', '#');
+        link.innerText = color
+
+        return link
+    }
+    
+    obj.colors.forEach(color => {
+        const listItem = createlistItem(color);
+        dropdownMenu.append(listItem);
+    });
+
+    cardBody.append(dropdown)
+
+    const formGroup = document.createElement('div');
+    formGroup.classList.add('form-group', 'pl-3');
+    cardBody.append(formGroup)
+
+    const qtytitle = document.createElement('p');
+    qtytitle.classList.add('medium', 'pt-2', 'mt-4');
+    qtytitle.innerText = 'Quantity';
+    formGroup.append(qtytitle)
+
+    const quantity = document.createElement('input');
+    quantity.classList.add('quantity');
+    quantity.setAttribute('min', '0');
+    quantity.setAttribute('name', 'quantity');
+    quantity.setAttribute('value', '1');
+    quantity.setAttribute('type', 'number');
+    formGroup.append(quantity)
+
+    // <p class="p-3">
+    //     <button class="btn btn-round btn-danger" type="button" onclick="loadDoc()"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+    // </p>
+
+    const cart = document.createElement('p');
+    cart.classList.add('p-3');
+    const cartbtn = document.createElement('button');
+    cartbtn.classList.add('btn', 'btn-round', 'btn-danger');
+    cartbtn.setAttribute('type', 'button');
+    cartbtn.setAttribute('onclick', 'loadDoc()');
+    cart.append(cartbtn)
+
+    const cartLogo = document.createElement('i');
+    cartLogo.classList.add('fa', 'fa-shopping-cart');
+    cartbtn.innerHTML = cartLogo + 'Add to Cart';
+    cartbtn.append(cartLogo)
+
+    cardBody.append(cart)
+
 
     cardContainer.append(card)
 
-    // const createlistItem = color => {
-    //     const item = document.createElement('li');
-    //     const link = document.createElement('a');
-    //     // <li><a href="#">Tan</a></li>
-    // }
 
     // return(cardContainer)
 }
-console.log(createCard)
